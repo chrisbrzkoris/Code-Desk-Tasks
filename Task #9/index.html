@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List Items</title>
+  <script>
+    var items = {
+      item1: {
+        name: "Item 1",
+        category: "Category A",
+        price: 10.99
+      },
+      item2: {
+        name: "Item 2",
+        category: "Category B",
+        price: 19.99
+      },
+      item3: {
+        name: "Item 3",
+        category: "Category A",
+        price: 14.99
+      }
+    };
+    
+    function listItems(obj) {
+      var container = document.getElementById("itemContainer");
+      
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          var item = obj[key];
+          var listItem = document.createElement("li");
+          listItem.textContent = "Name: " + item.name + ", Category: " + item.category + ", Price: $" + item.price.toFixed(2);
+          container.appendChild(listItem);
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Item List</h2>
+  <ul id="itemContainer"></ul>
+  
+  <script>
+    listItems(items);
+  </script>
+</body>
+</html>

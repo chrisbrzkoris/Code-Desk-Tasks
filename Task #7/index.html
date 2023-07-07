@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Function</title>
+  <script>
+    var items = [
+      { name: "Apple", category: "Fruit" },
+      { name: "Banana", category: "Fruit" },
+      { name: "Carrot", category: "Vegetable" },
+      { name: "Tomato", category: "Vegetable" },
+      { name: "Orange", category: "Fruit" }
+    ]; 
+    
+    function searchItems() {
+      var searchTerm = document.getElementById("searchTerm").value.toLowerCase();
+      var resultsContainer = document.getElementById("searchResults");
+      resultsContainer.innerHTML = ""; 
+      
+      var filteredItems = items.filter(function(item) {
+        var itemName = item.name.toLowerCase();
+        var itemCategory = item.category.toLowerCase();
+        
+        return itemName.includes(searchTerm) || itemCategory.includes(searchTerm);
+      });
+      
+      filteredItems.forEach(function(item) {
+        var listItem = document.createElement("li");
+        listItem.textContent = item.name + " - " + item.category;
+        resultsContainer.appendChild(listItem);
+      });
+    }
+  </script>
+</head>
+<body>
+  <h2>Search Items</h2>
+  <input type="text" id="searchTerm" placeholder="Enter search term" oninput="searchItems()">
+  
+  <h3>Search Results</h3>
+  <ul id="searchResults"></ul>
+</body>
+</html>

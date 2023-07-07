@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Click Event Handling</title>
+  <script>
+   
+    function handleButtonClick() {
+      alert("Button clicked!");
+    }
+    
+    function onDocumentLoaded() {
+      var button = document.getElementById("myButton");
+      
+      button.addEventListener("click", handleButtonClick);
+    }
+
+
+    document.addEventListener("DOMContentLoaded", onDocumentLoaded);
+  </script>
+</head>
+<body>
+
+  <button id="myButton">Click me</button>
+</body>
+</html>

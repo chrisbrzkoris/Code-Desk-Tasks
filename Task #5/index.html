@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Submission</title>
+  <script>
+    var formData = [];
+
+    function handleFormSubmission(event) {
+
+      event.preventDefault();
+
+      var nameInput = document.getElementById("name");
+      var emailInput = document.getElementById("email");
+
+      var nameValue = nameInput.value.trim();
+      var emailValue = emailInput.value.trim();
+
+      var formDataObject = {
+        name: nameValue,
+        email: emailValue
+      };
+
+      formData.push(formDataObject);
+
+      nameInput.value = "";
+      emailInput.value = "";
+
+
+      console.log(formData);
+
+      alert("Form submitted successfully!");
+    }
+  </script>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form onsubmit="handleFormSubmission(event)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
